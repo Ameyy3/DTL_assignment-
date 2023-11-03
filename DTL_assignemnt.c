@@ -5,11 +5,13 @@ int main() {
     char operator;
     double num1, num2, result;
 
-    printf("Enter an operator (+, -, *, /, ^): ");
+    printf("Enter an operator (+, -, *, /, ^, h): ");
     scanf(" %c", &operator);
 
-    printf("Enter two numbers: ");
-    scanf("%lf %lf", &num1, &num2);
+    if (operator != 'h') {
+        printf("Enter two numbers: ");
+        scanf("%lf %lf", &num1, &num2);
+    }
 
     switch (operator) {
         case '+':
@@ -35,6 +37,12 @@ int main() {
         case '^':
             result = pow(num1, num2);
             printf("Result: %.2lf\n", result);
+            break;
+        case 'h':
+            int decimalNumber;
+            printf("Enter a decimal number: ");
+            scanf("%d", &decimalNumber);
+            printf("Hexadecimal: 0x%X\n", decimalNumber);
             break;
         default:
             printf("Error: Invalid operator\n");
